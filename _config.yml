@@ -1,0 +1,43 @@
+# theme: jekyll-theme-architect
+markdown_ext: 'markdown,mkdown,mkdn,mkd'
+# permalink: pretty
+# gems:
+#   - jekyll-optional-front-matter
+collections:
+  raw:
+    output: true
+    permalink: /raw/:title/
+  pages:
+    output: true
+    permalink: /pages/:title/
+  rawpages:
+    output: true
+    permalink: /rawpages/:title/
+  posts:
+    permalink: /posts/:title/
+include:
+  - _pages
+defaults:
+  - scope:
+      path: ""
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "default_posts"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default_pages"
+  - scope:
+      path: "rawpages"
+      type: "pages"
+    values:
+      layout: "raw"
+  - scope:
+      path: "raw"
+      type: "posts"
+    values:
+      layout: "raw"
+sass:
+  style: compressed
+  sass_dir: _sass
