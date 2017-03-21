@@ -285,3 +285,54 @@ hr.light {
   border:1px solid white;
 }
 
+
+*:not(input):not(textarea) {
+  -webkit-user-select: none; /* disable selection/Copy of UIWebView */
+  -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
+}
+
+.btn-mobile-button {
+  background: white;
+  margin: 0;
+  padding: 1px;
+  position: absolute;
+  font-weight: 600;
+  -webkit-user-select: none; /* disable selection/Copy of UIWebView */
+  -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
+}
+
+.btn-mobile-button * {
+  margin: 0;
+  padding: 1px;
+  -webkit-user-select: none; /* disable selection/Copy of UIWebView */
+  -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
+}
+
+
+
+.btn-group-block {
+  width: 100%;
+}
+
+.btn-group-menu-block {
+  width: 330px;
+}
+.input-group-xs {
+  height: 22px !important;
+  max-height: 22px !important;
+}
+
+.input-group-button-xs {
+  height: 22px !important;
+  line-height: 10px;
+  margin: 0 !important;
+  padding: 1px 3px !important;
+}
+
+.smartdown-plotly {
+  width:100% !important;
+  height:100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
