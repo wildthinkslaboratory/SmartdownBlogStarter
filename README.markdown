@@ -1,51 +1,91 @@
 ---
+title:  "BlogKit"
+date:  "2017-04-19"
+description:  "Board BlogKit"
+categories:
 layout: default
 type: home
 ---
 
-## README for the Blog
+# SmartdownBlogKit
+## A Smartdown-enabled Website and Blog Template
 
-blah
-
-blah
+This `README.markdown` document is intended for authors who wish to deploy their static website or blog using the template in this repository. This document will not be visible to visitors of the deployed blog.
 
 
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/DoctorBud/ttt/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+### QuickStart
 
-- Bulleted
-- List
+- Fork the `SmartdownBlogKit` GitHub repository using [Fork](https://github.com/DoctorBud/SmartdownBlogStarter#fork-destination-box).
+- If desired, rename your forked repository and edit its description from the default 'An example GitHub Pages blog enhanced with Smartdown, intended to be forked and edited.' to a description of your choice. The name and description of the forked repository will be used as the default website name when deployed.
+- Edit the `config.yml` file in the forked repo to indicate the site's title (TBD: I think it is `site.title`). By default, the GitHub repository name and description will be used (see above).
+- In the `Settings` section of the forked repo, in the `GitHub Pages` subsection, choose `master branch` from the `Source` menu and then click `Save`. This will cause your repository to be published as a website (this make take up to 30 seconds; refresh the `Settings` page until you see an indication that your site is published. There should be green text with `Your site is published at ...` and the URL of your website should be visible.
+ - TBD: Put a screenshot of the Settings here
 
-1. Numbered
-2. List
+(Lan, we can either improve this card, or create new ones, it doesn't matter. I like to break stuff up into chunks. BTW, there is a `Join` command where you can select multiple messages and then join them into a new card).
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+### Default GitHub Pages Domain Name Setup
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/DoctorBud/ttt/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Talk about the default, where the user doesn't use `CNAME`
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+
+
+
+### Custom GitHub Pages Domain Name Setup
+
+Talk about using `CNAME` and how this will inhibit `https` unless you augment it with a service like `CloudFlare`
+
+#### Setting up CloudFlare to enable `https`
+
+blah blah blah
+
+
+
+
+
+
+
+### Adding Content: Pages vs Posts
+
+
+
+
+### Customizing the Look and Style of your new site
+
+
+
+
+### Markdown vs Smartdown File Extensions
+
+From another room... Edit this to be usable:
+> Yeah. The BlogKit is relying upon `.md` being Smartdown, and `.markdown` being used for plain old markdown. I'm loathe to have Smartdown files have a special extension like `.smd` because it would inhibit their ability to be edited with ordinary Markdown editors. So instead, I reserved `.md` for Smartdown within the BlogKit. (TBD: Add this important info to the README)
+
+
+
+
+
+#### Basics of Markdown
+
+
+
+
+#### Basics of Smartdown
+
+
+
+
+#### License and Credits
+
+Mostly links to the software used
 
 
