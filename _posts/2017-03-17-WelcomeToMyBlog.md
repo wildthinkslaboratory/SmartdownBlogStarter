@@ -13,8 +13,8 @@ This is the first post in an example blog. This blog is intended to be copied (f
 
 ### Features
 
-- [Smartdown](http://smartdown.site/?url=README.md)
-- [Smartdown](http://smartdown.site/?url=README.md)
+- [Smartdown](https://smartdown.site/?url=README.md)
+- [Smartdown](https://smartdown.site/?url=README.md)
 
 [Next](:@card2)
 
