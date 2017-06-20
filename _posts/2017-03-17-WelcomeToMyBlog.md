@@ -42,7 +42,7 @@ I haven't blogged for a few years, and have been mostly building Smartdown as a 
 
 This is a Mobius Strip constructed using 3D cylinders that are gradually rotated and translated to create a mobius strip skeleton.
 
-```p5js
+```p5js/playable
 var PI = Math.PI;
 var HALF_PI = PI / 2.0;
 var SEGMENTS = env.SEGMENTS || 30;  // number of segments
