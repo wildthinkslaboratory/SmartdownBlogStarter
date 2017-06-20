@@ -35,7 +35,7 @@ Use the navigation buttons below to explore different aspects of Smartdown.
 
 I'm experimenting with incorporating GIFs for the purpose of building a tutorial.
 
-![](assets/img/intro.gif)
+![player](assets/img/intro.gif)
 
 
 # SVG
