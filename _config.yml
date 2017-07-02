@@ -1,4 +1,6 @@
-# theme: jekyll-theme-architect
+ga: true
+title: BlogKit Example
+  # theme: jekyll-theme-architect
 markdown_ext: 'markdown,mkdown,mkdn,mkd'
 # permalink: pretty
 # gems:
@@ -18,6 +20,12 @@ collections:
 include:
   - _pages
 defaults:
+# Uncommenting this will allow plain-old-Markdown pages to work, but will break the
+# raw-mode delivery of unadorned smartdown source.
+#  - scope:
+#      path: "" # an empty string here means all files in the project
+#    values:
+#      layout: "default"
   - scope:
       path: ""
       type: "posts" # previously `post` in Jekyll 2.2.

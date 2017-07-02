@@ -16,6 +16,8 @@ This is the first post in an example blog. This blog is intended to be copied (f
 - [Smartdown](https://smartdown.site/?url=README.md)
 - [Smartdown](https://smartdown.site/?url=README.md)
 
+This particular page is a multi-card page, which means that a single Smartdown source file is being partitioned dynamically into multiple 'cards', without requiring a page load.
+
 [Next](:@card2)
 
 

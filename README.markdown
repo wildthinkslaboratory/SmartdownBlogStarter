@@ -13,12 +13,6 @@ type: home
 This `README.markdown` document is intended for authors who wish to deploy their static website or blog using the template in this repository. This document will not be visible to visitors of the deployed blog.
 
 
-
-
-
-
-
-
 ### QuickStart
 
 - Fork the `SmartdownBlogKit` GitHub repository using [Fork](https://github.com/DoctorBud/SmartdownBlogStarter#fork-destination-box).

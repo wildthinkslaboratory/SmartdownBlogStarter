@@ -27,6 +27,9 @@ Use the navigation buttons below to explore different aspects of Smartdown.
 - [Cells](:@Cells)
 - [Plotly](:@Plotly)
 
+Note that the above links are intra-document links in a MultiCard Smartdown document.
+
+The links below, however, are inter-document links between one Smartdown document, and another. In both of these cases, no page-reload occurs and state is maintained.
 
 [Smartdown Tour](:@raw/SmartdownTour/)
 [Welcome To My Blog](:@raw/WelcomeToMyBlog/)

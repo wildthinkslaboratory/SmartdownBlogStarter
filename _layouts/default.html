@@ -19,16 +19,17 @@
     <script type="text/x-smartdown" id="Home">{{ content }}</script>
 {% endif %}
 
-{% comment %}
-    <link rel=stylesheet href="https://smartdown.site/lib/smartdown.css">
-    <script type="text/javascript" src="https://smartdown.site/lib/smartdown.js"></script>
-    <script type="text/x-smartdown" id="Home">{{ content }}</script>
-{% endcomment %}
-
   </head>
 
   <body>
     {% include sidebar.html %}
+
+{% if page.smartdown == true %}
+    <div class="container-fluid">
+      <div class="col-xs-12 smartdown-container" id="blog-content">
+      </div>
+    </div>
+{% endif %}
 
 {% if page.smartdown != true %}
     <div class="container">
@@ -40,78 +41,60 @@
     </div>
 {% endif %}
 
-{% if page.smartdown == true %}
-    <div class="container-fluid">
-      <div class="col-xs-12 smartdown-container" id="blog-content">
-      </div>
-    </div>
-{% endif %}
-
-
-{% if page.type == 'home' %}
-    {% include home.html %}
-{% endif %}
-
-    <footer>
-      <div class="container">
-        <div id="a-contact" class="row">
-{% if page.type == 'home' %}
-          <div class="col-lg-10 col-lg-offset-1 text-center">
-            <span class="fa-stack fa-4x" style="color: transparent;">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-comments fa-stack-1x text-primary"></i>
-            </span>
-            <h4>
-              <strong>Example Smartdown Blog</strong>
-            </h4>
-            <p>Earth</p>
-            <ul class="list-unstyled">
-              <li>
-                <i class="fa fa-link fa-fw"></i>
-                <a
-                  href="http://smartdown.site"
-                  target="_blank">
-                  http://smartdown.site
-                </a>
-              </li>
-              <li>
-                <i class="fa fa-twitter fa-fw"></i>
-                <a
-                  href="https://twitter.com/TheDoctorBud"
-                  target="_blank">
-                  &commat;TheDoctorBud
-                </a>
-              </li>
-              <li>
-                <i class="fa fa-envelope-o fa-fw"></i>
-                <a
-                  href="mailto:email_placeholder@example.com">
-                  email_placeholder@example.com
-                </a>
-              </li>
-            </ul>
-            <br>
-            <hr class="small">
-            <p class="text-muted">
-              Site &copy; Daniel B Keith 2017
-            </p>
-            <p class="small text-muted">
-              Theme based on
-              <a href="https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio/"
+  <footer>
+    <div class="container">
+      <div id="a-contact" class="row">
+        <div class="col-lg-10 col-lg-offset-1 text-center">
+          <span class="fa-stack fa-4x" style="color: transparent;">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-comments fa-stack-1x text-primary"></i>
+          </span>
+          <h4>
+            <strong>BlogKit Home Footer</strong>
+          </h4>
+          <p>Earth</p>
+          <ul class="list-unstyled">
+            <li>
+              <i class="fa fa-link fa-fw"></i>
+              <a
+                href="https://smartdown.site"
                 target="_blank">
-                Stylish Portfolio
+                https://smartdown.site
               </a>
-              &copy; 2013-2016 Blackrock Digital LLC
-            </p>
-          </div>
-{% endif %}
+            </li>
+            <li>
+              <i class="fa fa-twitter fa-fw"></i>
+              <a
+                href="https://twitter.com/TheDoctorBud"
+                target="_blank">
+                &commat;TheDoctorBud
+              </a>
+            </li>
+            <li>
+              <i class="fa fa-envelope-o fa-fw"></i>
+              <a
+                href="mailto:email_placeholder@example.com">
+                email_placeholder@example.com
+              </a>
+            </li>
+          </ul>
+          <br>
+          <hr class="small">
+          <p class="text-muted">
+            Site &copy; Daniel B Keith 2017
+          </p>
+          <p class="small text-muted">
+            Theme based on
+            <a href="https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio/"
+              target="_blank">
+              Stylish Portfolio
+            </a>
+            &copy; 2013-2016 Blackrock Digital LLC
+          </p>
         </div>
       </div>
-        <a id="to-top" class="btn btn-dark btn-lg">
-          <i class="fa fa-chevron-up fa-fw fa-1x"></i>
-        </a>
-    </footer>
-
+    </div>
+  </footer>
     <script src="{{site.baseurl}}/assets/js/jquery/jquery.min.js"></script>
     <script src="{{site.baseurl}}/assets/js/bootstrap/bootstrap.min.js"></script>
 
@@ -180,7 +163,9 @@
 {% include smartdown_footer.html %}
 {% endif %}
 
+{% if site.ga == true %}
 {% include google_analytics.html %}
+{% endif %}
 
   </body>
 </html>
