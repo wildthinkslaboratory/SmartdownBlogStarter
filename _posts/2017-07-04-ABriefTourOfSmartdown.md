@@ -9,11 +9,15 @@ smartdown: true
 
 ## Welcome to Smartdown
 
-Smartdown an extension of Markdown that includes several additions:
-- The ability to have input, output, and calculation *cells* that react to user input. Smartdown's cells are similar to those in most spreadsheets.
-- Additional media embedding support including Tweets, SVG, Video.
-- Integration of [P5JS](https://p5js.org)
-- Integration of [plotly.js](https://plot.ly/javascript/)
+Smartdown is an extension of Markdown that includes several additions:
+- Technical notation support, including [MathJax](https://www.mathjax.org) LaTeX and AsciiMath syntax, chemical notation via [`mhchem`](https://mhchem.github.io/MathJax-mhchem/),
+- Syntax highlighting via [highlight.js](https://highlightjs.org).
+- Reactive cells similar to those in a spreadsheet, but inline with Smartdown prose. These cells can be use for input, output, calculation, and for interacting with internet APIs such as Wikidata.
+- Media embedding support including Images, Tweets, SVG, Video.
+- [P5JS](https://p5js.org) to support drawing-based visualizations, games, and sound.
+- [Plotly.js](https://plot.ly/javascript/) to support data visualizations including various plots, charts, and maps.
+- [Leaflet.js](http://leafletjs.com) for easy embedding of geo-based data and maps.
+- [Graphviz via `viz.js`](http://viz-js.com) diagrams are a standard format used for technical and scientific diagrams
 - Much Much more
 
 
@@ -21,22 +25,21 @@ Smartdown an extension of Markdown that includes several additions:
 
 Use the navigation buttons below to explore different aspects of Smartdown.
 
-- [SVG](:@SVG)
 - [Math](:@Math)
-- [Mermaid](:@Mermaid)
-- [Cells](:@Cells)
 - [Plotly](:@Plotly)
+- [Cells](:@Cells)
+- [SVG](:@SVG)
 
 Note that the above links are intra-document links in a MultiCard Smartdown document.
 
 The links below, however, are inter-document links between one Smartdown document, and another. In both of these cases, no page-reload occurs and state is maintained.
 
-[Smartdown Tour](:@raw/SmartdownTour/)
+[Smartdown Tour](:@raw/ABriefTourOfSmartdown/)
 [Welcome To My Blog](:@raw/WelcomeToMyBlog/)
 
 ### GIF Example
 
-I'm experimenting with incorporating GIFs for the purpose of building a tutorial.
+I'm experimenting with incorporating GIFs for the purpose of building a tutorial. Below is a short video of the [Smartdown Viewer](https://smartdown.site) being used to edit Smartdown:
 
 ![player](assets/img/intro.gif)
 
@@ -71,9 +74,6 @@ By using MathJax, we can display all sorts of notation.
 
 We can do inline math: $E = mc^2$
 
-$\displaystyle E = mc^2$
-
-
 Or we can do block math:
 
 $$
@@ -103,6 +103,45 @@ $$
 (1,13);p+/v a(18) 5.5em/**@3{..},
 \end{xy}
 $$
+
+#### MathJax $\LaTeX$ vs AsciiMath Syntax
+
+Recently, I learned that MathJax had an alternative syntax, [AsciiMath](http://asciimath.org) that is simpler for many purposes. Smartdown has enabled this feature, although we are currently using `@` as the delimiter instead of \` or `$`.
+
+##### $\LaTeX$ Syntax
+
+Currently, Smartdown uses LaTeX-style math syntax, so the following formula:
+
+$$
+\sum_{i=1}^{n} i^3=\left(\frac{n(n+1)}{2}\right)^2
+$$
+
+is expressed as:
+
+```
+$$
+\sum_{i=1}^{n} i^3=\left(\frac{n(n+1)}{2}\right)^2
+$$
+```
+
+##### AsciiMath Syntax
+
+The above formula is expressed in AsciiMath (using `@` as delimiters) as:
+
+```
+@sum_(i=1)^n i^3=((n(n+1))/2)^2@
+```
+
+which Smartdown now renders as:
+
+@sum_(i=1)^n i^3=((n(n+1))/2)^2@
+
+Note that AsciiMath via MathJax does not support *display-mode* equations, but centering can be achieved via Markdown table syntax:
+
+||
+|:---:|
+|@sum_(i=1)^n i^3=((n(n+1))/2)^2@|
+
 
 ---
 
@@ -147,23 +186,53 @@ We can do inline math: $E = mc^2$
 # Cells
 ---
 
+
+## Cells - Reactive Spreadsheet Cells
+
+Smartdown uses ordinary Markdown link syntax to specify a cell *label* and *body*, where the *label* is specified in the link label, and the *body* is specified in the link's URL. For example, the following declares an *output* cell that displays the value of the `FOO` variable:
+
+```markdown
+[The value of FOO is](:!FOO)
+```
+
+When a non-empty label is present, the cell will be formatted with its label on its own line. When no label is present, then the cell will be formatted inline.
+
+### Cells with labels get their own line
+
+- [What is your name?](:?NAME)
+- [Glad to meet you](:!NAME)
+- [What is your name again?](:?NAME)
+- [Really glad to meet you](:!NAME)
+- [Are you human?](:XHUMAN)
+- [Humanity](:!HUMAN)
+
+
+### Cells with no labels are inlined
+
+What is your name? [](:?NAME) So glad to meet you [](:!NAME). What is your name again? [](:?NAME) Really glad to meet you [](:!NAME).
+Are you human? [](:XHUMAN) Your Humanity is [](:!HUMAN).
+
 ### External Data Query
 
 *The Smartdown code below is a work in progress and the syntax used is experimental and in flux.*
 
 One of the goals of Smartdown is to enable simple text files to express rich interactive experiences that involve live data. Ideally, web-based services would already exist to serve the data-hunger of Smartdown. In this example, we are exploring the use of [Wikidata](https://www.wikidata.org) as a data source.
 
-Limitations of the current tech include:
+[WHAT do you want to look up?](:?WHAT)
 
-- The [Falcor](https://netflix.github.io/falcor/) syntax is a hack and is not using the Falcor library.
-- The current example emphasizes the extraction of thumbnail images from Wikidata and does not display or utilize the full set of metadata returned.
+Examples:
+- Earth
+- Buddha
+- Uranium
+- Oregon
+- Abraham Lincoln
 
-[Who do you want to look up?](:?WHO)
+- [Lookup Title/URL](:=LOOKUP=/wikidata[`WHAT`])
+- [Lookup Thumbnails](:=LOOKUP=/wikidataThumbs[`WHAT`])
+- [Lookup Title/URL](:=LOOKUP=/wikidata/Albert Einstein|Marie Curie|Max Plank)
+- [Lookup Thumbnails](:=LOOKUP=/wikidataThumbs/Albert Einstein|Marie Curie|Max Plank)
 
-[Lookup Name via slash](:=LOOKUP=/wikidata/Albert Einstein|Albert Ellis|Albert Estopinal)
-[Lookup Name via Falcor](:=LOOKUP=/wikidata["Albert Einstein"])
-[Lookup Name via WHO variable](:=LOOKUP=/wikidata[`WHO`])
-[Lookup result](:!LOOKUP)
+- [Lookup result](:!LOOKUP)
 
 ---
 
@@ -181,17 +250,10 @@ The current integration of [plotly.js](https://plot.ly/javascript/) is fairly ra
 
 Here is the [Hello World](https://plot.ly/javascript/getting-started/#hello-world-example) example.
 
-This example enables the user to enter an alternate Title, which is associated with the variable `PLOT_TITLE`. Smartdown's Plotly integration is still in its initial stages, with the plot title being adjustable by changing the `PLOT_TITLE` variable. Eventually, it will be possible to have plots respect arbitrary smartdown variable data, instead of just the special `PLOT_TITLE` variables.
-
----
-
-[Title](:?PLOT_TITLE)
-
----
 
 ```plotly/playable
 var layout = {
-    title: 'Default Title',
+    title: 'Simple Line Graph',
     autosize: true,
     // width: 500,
     // height: 300,
@@ -207,95 +269,9 @@ Plotly.plot( this.div, [{
 
 ```
 
-
-### 3D Surface Plots
-
-From [3D Surface Plots](https://plot.ly/javascript/3d-surface-plots/)
-
-
-```plotly/playable
-
-var myDiv = this.div;
-Plotly.d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/api_docs/mt_bruno_elevation.csv', function(err, rows){
-  function unpack(rows, key) {
-    return rows.map(function(row) { return row[key]; });
-  }
-
-  var z_data=[ ]
-  for(i=0;i<24;i++)
-  {
-    z_data.push(unpack(rows,i));
-  }
-
-  var data = [{
-             z: z_data,
-             type: 'surface'
-          }];
-
-  var layout = {
-    title: 'Mt Bruno Elevation',
-    autosize: true,
-    // width: 500,
-    // height: 300,
-    margin: {
-      t: 100, b: 0, l: 0, r: 0
-    }
-  };
-  Plotly.newPlot(myDiv, data, layout, {displayModeBar: true});
-});
-
-
-```
-
-
-
-
-### Simple Contour Plot
-
-```plotly/playable
-var myDiv = this.div;
-
-var size = 100, x = new Array(size), y = new Array(size), z = new Array(size), i, j;
-
-for(var i = 0; i < size; i++) {
-  x[i] = y[i] = -2 * Math.PI + 4 * Math.PI * i / size;
-    z[i] = new Array(size);
-}
-
-for(var i = 0; i < size; i++) {
-    for(j = 0; j < size; j++) {
-      var r2 = x[i]*x[i] + y[j]*y[j];
-      z[i][j] = Math.sin(x[i]) * Math.cos(y[j]) * Math.sin(r2) / Math.log(r2+1);
-  }
-}
-
-var data = [ {
-    z: z,
-    x: x,
-    y: y,
-    type: 'contour'
-  }
-];
-
-  var layout = {
-    title: 'Simple Contour Plot',
-    autosize: true,
-    // width: 500,
-    // height: 300,
-    margin: {
-      t: 100, b: 0, l: 0, r: 0
-    }
-  };
-
-Plotly.newPlot(myDiv, data, layout, {displayModeBar: true});
-```
-
-
-
 ### Maps
 
 From [Chloropleth Map](https://plot.ly/javascript/choropleth-maps)
-
 
 ```plotly/playable
 

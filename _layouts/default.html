@@ -7,18 +7,23 @@
 
     <base href="{{ site.baseurl }}/">
 
-    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css" media="screen" type="text/css">
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="{{site.baseurl}}/assets/css/main.css"
+      media="screen">
 
     <title>
-    {{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}
+    {{ site.title }}
     </title>
 
 {% if page.smartdown == true %}
     <link rel=stylesheet href="https://unpkg.com/smartdown/docs/lib/smartdown.css">
-    <script type="text/javascript" src="https://unpkg.com/smartdown/docs/lib/smartdown.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/smartdown/docs/lib/smartdown.js">
+    </script>
+    <script type="text/javascript" src="https://unpkg.com/smartdown/docs/lib/calc_handlers.js"></script>
     <script type="text/x-smartdown" id="Home">{{ content }}</script>
 {% endif %}
-
   </head>
 
   <body>
@@ -28,73 +33,32 @@
     <div class="container-fluid">
       <div class="col-xs-12 smartdown-container" id="blog-content">
       </div>
+      <ul class="pager">
+         <li class="next"><a href="{{page.next.url}}">{{page.next.title}}</a></li>
+         <li class="previous"><a href="{{page.previous.url}}">{{page.previous.title}}</a></li>
+      </ul>
     </div>
-{% endif %}
 
-{% if page.smartdown != true %}
+{% elsif page.type == 'home' %}
+    {{ content }}
+{% else %}
     <div class="container">
       <div class="inner clearfix">
         <section id="main-content">
           {{ content }}
         </section>
       </div>
+
+      <ul class="pager">
+         <li class="next"><a href="{{page.next.url}}">{{page.next.title}}</a></li>
+         <li class="previous"><a href="{{page.previous.url}}">{{page.previous.title}}</a></li>
+      </ul>
     </div>
 {% endif %}
 
-  <footer>
-    <div class="container">
-      <div id="a-contact" class="row">
-        <div class="col-lg-10 col-lg-offset-1 text-center">
-          <span class="fa-stack fa-4x" style="color: transparent;">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-comments fa-stack-1x text-primary"></i>
-          </span>
-          <h4>
-            <strong>BlogKit Home Footer</strong>
-          </h4>
-          <p>Earth</p>
-          <ul class="list-unstyled">
-            <li>
-              <i class="fa fa-link fa-fw"></i>
-              <a
-                href="https://smartdown.site"
-                target="_blank">
-                https://smartdown.site
-              </a>
-            </li>
-            <li>
-              <i class="fa fa-twitter fa-fw"></i>
-              <a
-                href="https://twitter.com/TheDoctorBud"
-                target="_blank">
-                &commat;TheDoctorBud
-              </a>
-            </li>
-            <li>
-              <i class="fa fa-envelope-o fa-fw"></i>
-              <a
-                href="mailto:email_placeholder@example.com">
-                email_placeholder@example.com
-              </a>
-            </li>
-          </ul>
-          <br>
-          <hr class="small">
-          <p class="text-muted">
-            Site &copy; Daniel B Keith 2017
-          </p>
-          <p class="small text-muted">
-            Theme based on
-            <a href="https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio/"
-              target="_blank">
-              Stylish Portfolio
-            </a>
-            &copy; 2013-2016 Blackrock Digital LLC
-          </p>
-        </div>
-      </div>
-    </div>
-  </footer>
+
+  {% include footer.html %}
+
     <script src="{{site.baseurl}}/assets/js/jquery/jquery.min.js"></script>
     <script src="{{site.baseurl}}/assets/js/bootstrap/bootstrap.min.js"></script>
 

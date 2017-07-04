@@ -3,15 +3,12 @@ title: Dungeon Game Starter Title
 smartdown: true
 ---
 
-
 ##### Beginnings of a Dungeon Game
 
 [Character Name](:?N)
 
 ```p5js/playable
 
-// A sound file object
-var song;
 var spriteX;
 var spriteY;
 var statusHeight = 30;
@@ -20,15 +17,7 @@ var trapezoidWidth = 100;
 var trapezoidHeight = 200;
 var upButton, downButton, leftButton, rightButton, spaceButton;
 
-p5.preload = function () {
-  // Load a sound file
-  var sound = 'https://gist.githubusercontent.com/DoctorBud/6e90eb9859f2616cd709e41557619172/raw/3dacb7ce9d689a0b71042c567a5d0749ba181870/sound.mp3';
-  song = p5.loadSound(sound);
-};
-
 p5.setup = function () {
-  song.loop();  // Loop the sound forever
-
   p5.createCanvas(100, 100);
   p5.textSize(20);
   p5.textFont('Helvetica');
@@ -51,6 +40,8 @@ p5.setup = function () {
   leftButton = makeButton('&leftarrow;', 70, 35, p5.LEFT_ARROW);
   rightButton = makeButton('&rightarrow;', 10, 35, p5.RIGHT_ARROW);
   spaceButton = makeButton('&infin;', 40, 35, 32);
+
+  p5.windowResized();
 };
 
 p5.windowResized = function() {
