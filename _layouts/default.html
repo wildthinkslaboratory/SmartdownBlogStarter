@@ -33,11 +33,9 @@
     <div class="container-fluid">
       <div class="col-xs-12 smartdown-container" id="blog-content">
       </div>
-      <ul class="pager">
-         <li class="next"><a href="{{page.next.url}}">{{page.next.title}}</a></li>
-         <li class="previous"><a href="{{page.previous.url}}">{{page.previous.title}}</a></li>
-      </ul>
     </div>
+
+    {% include pager.html %}
 
 {% elsif page.type == 'home' %}
     {{ content }}
@@ -49,10 +47,7 @@
         </section>
       </div>
 
-      <ul class="pager">
-         <li class="next"><a href="{{page.next.url}}">{{page.next.title}}</a></li>
-         <li class="previous"><a href="{{page.previous.url}}">{{page.previous.title}}</a></li>
-      </ul>
+      {% include pager.html %}
     </div>
 {% endif %}
 
