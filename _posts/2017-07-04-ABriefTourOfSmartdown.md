@@ -18,7 +18,7 @@ Smartdown is an extension of Markdown that includes several additions:
 - [Plotly.js](https://plot.ly/javascript/) to support data visualizations including various plots, charts, and maps.
 - [Leaflet.js](http://leafletjs.com) for easy embedding of geo-based data and maps.
 - [Graphviz via `viz.js`](http://viz-js.com) diagrams are a standard format used for technical and scientific diagrams
-- Much Much more
+- Much MuchMuchMuchMuch more
 
 
 ### Map of functionality
