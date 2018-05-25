@@ -212,27 +212,41 @@ When a non-empty label is present, the cell will be formatted with its label on 
 What is your name? [](:?NAME) So glad to meet you [](:!NAME). What is your name again? [](:?NAME) Really glad to meet you [](:!NAME).
 Are you human? [](:XHUMAN) Your Humanity is [](:!HUMAN).
 
+
+
 ### External Data Query
 
 *The Smartdown code below is a work in progress and the syntax used is experimental and in flux.*
 
 One of the goals of Smartdown is to enable simple text files to express rich interactive experiences that involve live data. Ideally, web-based services would already exist to serve the data-hunger of Smartdown. In this example, we are exploring the use of [Wikidata](https://www.wikidata.org) as a data source.
 
+Limitations of the current tech include:
+
+- The [Falcor](https://netflix.github.io/falcor/) syntax is a hack and is not using the Falcor library.
+- The current example emphasizes the extraction of thumbnail images from Wikidata and does not display or utilize the full set of metadata returned.
+
 [WHAT do you want to look up?](:?WHAT)
 
 Examples:
 - Earth
-- Buddha
+- Penguin
 - Uranium
 - Oregon
 - Abraham Lincoln
+- [`WHAT`](:=LOOKUP=/wikidata["`WHAT`"])
+- [`WHAT` thumbnails](:=LOOKUP=/wikidataThumbs["`WHAT`"])
+- [`WHAT` images](:=LOOKUP=/wikidataImages["`WHAT`"])
 
-- [Lookup Title/URL](:=LOOKUP=/wikidata[`WHAT`])
-- [Lookup Thumbnails](:=LOOKUP=/wikidataThumbs[`WHAT`])
-- [Lookup Title/URL](:=LOOKUP=/wikidata/Albert Einstein|Marie Curie|Max Plank)
-- [Lookup Thumbnails](:=LOOKUP=/wikidataThumbs/Albert Einstein|Marie Curie|Max Plank)
 
+- [Albert Einstein|Marie Curie|Max Plank (Slash, Thumbnails)](:=LOOKUP=/wikidataThumbs/Albert Einstein|Marie Curie|Max Plank)
+- [Albert Einstein (Falcor, Thumbnails)](:=LOOKUP=/wikidataThumbs["Albert Einstein"])
+- [Albert Einstein|Marie Curie|Max Plank (Slash, Original)](:=LOOKUP=/wikidataImages/Albert Einstein|Marie Curie|Max Plank)
+- [Albert Einstein (Falcor, Original)](:=LOOKUP=/wikidataImages["Albert Einstein"])
 - [Lookup result](:!LOOKUP)
+
+---
+
+[](:!LOOKUP)
 
 ---
 
