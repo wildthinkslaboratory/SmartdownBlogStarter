@@ -5,8 +5,10 @@ type: home
 
 <header id="top" class="header">
   <div class="text-vertical-left">
-    <img src="{{ "/assets/img/youtubeArtSmall.jpg" | relative_url }}" width="30" height="30" alt="logo">
+    <img src="{{ "/assets/img/youtubeArtSmall.jpg" | relative_url }}" width="100" height="100" alt="logo">
     <a>wildthinks blog</a>
+
+    <a href="{{site.baseurl}}/#a-about" onclick="$('#menu-close').click();">About&hellip;</a>
   </div>
 </header>
 
@@ -22,7 +24,7 @@ type: home
                 <a class="bloglist-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
 
                 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y'}}</time>
-                <div class="post">
+                <div class="bloglist-excerpt">
                   <p>{{ post.excerpt }}</p>
                 </div>
 

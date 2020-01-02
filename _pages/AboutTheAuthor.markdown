@@ -1,8 +1,0 @@
----
-title: About the Author
----
-
-*This is rendered via Kramdown*
-
-{% include AboutTheAuthor.txt %}
-

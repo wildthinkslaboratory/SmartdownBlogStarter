@@ -32,15 +32,16 @@
   </head>
 
   <body>
-    {% include sidebar.html %}
+   <!--  {% include sidebar.html %} -->
 
 {% if page.smartdown == true %}
     <div class="container-fluid smartdown-outer-container smartdown-theme">
       <div class="col-xs-12 smartdown-container" id="blog-content">
       </div>
+      <!-- {% include pager.html %} -->
     </div>
 
-    {% include pager.html %}
+    
 
 {% elsif page.type == 'home' %}
     {{ content }}
@@ -53,17 +54,17 @@
         </section>
       </div>
 
-      {% include pager.html %}
+     <!--  {% include pager.html %} -->
     </div>
 {% endif %}
 
 
-  {% include footer.html %}
+  <!-- {% include footer.html %} -->
 
     <script src="{{site.baseurl}}/assets/js/jquery/jquery.min.js"></script>
     <script src="{{site.baseurl}}/assets/js/bootstrap/bootstrap.min.js"></script>
 
-    <script>
+  <!--   <script>
       // Closes the sidebar menu
       $("#menu-close").click(function(e) {
           e.preventDefault();
@@ -122,7 +123,7 @@
               }
           }
       });
-    </script>
+    </script> -->
 
 {% if page.smartdown == true %}
 {% include smartdown_footer.html %}
