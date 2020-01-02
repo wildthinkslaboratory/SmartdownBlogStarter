@@ -3,14 +3,10 @@ title: USAMTS Competition Problem Explorables
 smartdown: true
 ---
 
-The USA Mathematical Talent Search [USAMTS](https://www.usamts.org) is a unique mathematical competition for middle school and highschool students.  Most math competitions are like taking an in class math test.  There are official testing locations and competitors have to complete problems in fairly short time period on the order of an hour or two.  USAMTS is like the take home test competition.  As all teachers know, a take home test means that you can ask questions that require deeper thought, divergent thinking and a higher level of problem solving.  Each year the competition publishes three problem sets with five questions each and they give competitors around six weeks to complete each problem set.  Most of the problems require a formal written proof.  
-
-The result of all this is they have years of problem sets from previous competitions and they are fabulous. It helps to have some knowledge of number theory or other ... but most problems are appropriate to students with a highschool math background.  Most highschool students could understand the solutions.  However, they require a level of mathematical sophistication to discover the solution and write it up cleanly.
-
-The problems are simultaneously appropriate for highschool level math curriculum and wonderfully challenging.
+The USA Mathematical Talent Search [USAMTS](https://www.usamts.org) is a unique mathematical competition for middle school and high school students.  Previous competitions contain a treasure trove of challenging, thought provoking and remarkably accessible problems.  I'm going to write some interactive apps for a few these problems so that it's easier to get to the heart of each problem.  Here's my first problem. 
 
 
-### USAMTS Problem Set 1 
+### USAMTS 2018-2019 Problem Set 1 
 
 **4/1/30**. Right triangle $\triangle ABC$ has $\angle C = 90^{\circ}$. A fly is trapped inside $\triangle ABC$. It starts at point $D$, the foot of the altitude from $C$ to $\overline{AB}$, and then makes a (finite) sequence of moves. In each move, it flies in a direction parallel to either $\overline{AC}$ or $\overline{BC}$; upon reaching a leg of the triangle, it then flies to a point on $\overline{AB}$ in a direction parallel to $\overline{CD}$. For example, on its first move, the fly can move to either of the points [Y1](:=Y1=true) or [Y2](:=Y2=true), as shown.
 
