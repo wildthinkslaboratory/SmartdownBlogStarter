@@ -1,6 +1,7 @@
 ---
 title: USAMTS Competition Problem Explorables
 smartdown: true
+categories: [ usamts, challenge ]
 ---
 
 The USA Mathematical Talent Search [USAMTS](https://www.usamts.org) is a unique mathematical competition for middle school and high school students.  Previous competitions contain a treasure trove of challenging, thought provoking and remarkably accessible problems.  I'm going to write some interactive apps for a few these problems so that it's easier to get to the heart of each problem.  Here's my first problem. 
@@ -11,7 +12,8 @@ The USA Mathematical Talent Search [USAMTS](https://www.usamts.org) is a unique 
 **4/1/30**. Right triangle $\triangle ABC$ has $\angle C = 90^{\circ}$. A fly is trapped inside $\triangle ABC$. It starts at point $D$, the foot of the altitude from $C$ to $\overline{AB}$, and then makes a (finite) sequence of moves. In each move, it flies in a direction parallel to either $\overline{AC}$ or $\overline{BC}$; upon reaching a leg of the triangle, it then flies to a point on $\overline{AB}$ in a direction parallel to $\overline{CD}$. For example, on its first move, the fly can move to either of the points [Y1](:=Y1=true) or [Y2](:=Y2=true), as shown.
 
 Let $P$ and $Q$ be distinct points on $\overline{AB}$. Show that the fly can reach some point on $\overline{PQ}$. [Show P and Q](:=reset=true)
-```javascript /playable/p5js
+
+```javascript /playable/autoplay/p5js
 
 // this code is html code to make the app size and background
 const myDiv = this.div;

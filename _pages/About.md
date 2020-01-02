@@ -1,10 +1,9 @@
 ---
-title: About me
+title: About this blog
 smartdown: true
 ---
 
-
-My name is Heidi Dixon and I have a passionate interest in mathematics education.  I am a stay at home mom and a former research scientist and software engineer.
+My name is Heidi Dixon and I have a passionate interest in mathematics education.  I am a stay at home mom and a former research scientist and software engineer.  This blog is a place for me to share my latest prototypes for interactive math education.  
 
 
 ##### Professional Work

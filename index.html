@@ -11,15 +11,25 @@ type: home
         <ul class="bloglist">
         {% for post in site.posts limit: 10 %}
             <li>
-              <p class="bloglist-item">
+              <div class="bloglist-item">
                 <a class="bloglist-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+              </div>
 
-                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y'}}</time>
-                <div class="bloglist-excerpt">
-                  <p>{{ post.excerpt | markdownify }}</p>
-                </div>
+              <div class="post-meta">
+                <ul class="post-categories">
+                  {%- for tag in post.categories -%}
+                  <li>{{ tag }}</li>
+                  {%- endfor -%}
+                </ul>
+                <div class="post-date"><i class="icon-calendar"></i>{{ post.date | date: '%b %-d, %Y' }}</div>
+              </div>
 
-              </p>
+
+
+              <div class="bloglist-excerpt">
+                <p>{{ post.excerpt | markdownify }}</p>
+              </div>
+
             </li>
         {% endfor %}
         </ul>
