@@ -2,7 +2,6 @@
 title: Plain Old Markdown
 ---
 
-## GitHub-Flavored Markdown with Kramdown
 
 BlogKit supports the standard [GitHub-flavored Markdown](https://help.github.com/articles/about-writing-and-formatting-on-github/) provided by GitHub Pages. Specifically, GitHub Pages uses the [kramdown](https://kramdown.gettalong.org/quickref.html) processor to convert Markdown into HTML within the GitHub Pages server.
 

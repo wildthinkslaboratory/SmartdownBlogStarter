@@ -4,12 +4,10 @@ smartdown: true
 ---
 
 
-# WelcomeToSmartdown
----
 
-## Welcome to Smartdown
 
 Smartdown is an extension of Markdown that includes several additions:
+
 - Technical notation support, including [MathJax](https://www.mathjax.org) LaTeX and AsciiMath syntax, chemical notation via [`mhchem`](https://mhchem.github.io/MathJax-mhchem/),
 - Syntax highlighting via [highlight.js](https://highlightjs.org).
 - Reactive cells similar to those in a spreadsheet, but inline with Smartdown prose. These cells can be use for input, output, calculation, and for interacting with internet APIs such as Wikidata.

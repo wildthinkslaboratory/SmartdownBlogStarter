@@ -3,6 +3,8 @@ title: USAMTS Competition Problem Explorable
 smartdown: true
 ---
 
+The USA Mathematical Talent Search creates fabulous problem sets.
+
 **4/1/30**. Right triangle $\triangle ABC$ has $\angle C = 90^{\circ}$. A fly is trapped inside $\triangle ABC$. It starts at point $D$, the foot of the altitude from $C$ to $\overline{AB}$, and then makes a (finite) sequence of moves. In each move, it flies in a direction parallel to either $\overline{AC}$ or $\overline{BC}$; upon reaching a leg of the triangle, it then flies to a point on $\overline{AB}$ in a direction parallel to $\overline{CD}$. For example, on its first move, the fly can move to either of the points $Y_1$ or $Y_2$, as shown.
 Let $P$ and $Q$ be distinct points on $\overline{AB}$. Show that the fly can reach some point on $\overline{PQ}$.
 

@@ -5,9 +5,3 @@ smartdown: true
 ---
 
 
-##### Root
-
-Check out [Simple](:@rawpages/Simple)
-
-Check out [Dungeon](:@rawpages/DungeonGameStarter)
-
