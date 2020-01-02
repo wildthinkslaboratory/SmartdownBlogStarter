@@ -1,10 +1,7 @@
 ---
-title: A Brief Tour of Smartdown
+title: USAMTS Competition Problem Explorable
 smartdown: true
 ---
-
-
-
 
 Smartdown is an extension of Markdown that includes several additions:
 

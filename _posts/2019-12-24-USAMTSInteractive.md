@@ -1,17 +1,21 @@
 ---
-title: USAMTS Competition Problem Explorable
+title: USAMTS Competition Problem Explorables
 smartdown: true
 ---
 
-The USA Mathematical Talent Search creates fabulous problem sets.
+The USA Mathematical Talent Search [USAMTS](https://www.usamts.org) is a unique mathematical competition for middle school and highschool students.  Most math competitions are like taking an in class math test.  There are official testing locations and competitors have to complete problems in fairly short time period on the order of an hour or two.  USAMTS is like the take home test competition.  As all teachers know, a take home test means that you can ask questions that require deeper thought, divergent thinking and a higher level of problem solving.  Each year the competition publishes three problem sets with five questions each and they give competitors around six weeks to complete each problem set.  Most of the problems require a formal written proof.  
 
-**4/1/30**. Right triangle $\triangle ABC$ has $\angle C = 90^{\circ}$. A fly is trapped inside $\triangle ABC$. It starts at point $D$, the foot of the altitude from $C$ to $\overline{AB}$, and then makes a (finite) sequence of moves. In each move, it flies in a direction parallel to either $\overline{AC}$ or $\overline{BC}$; upon reaching a leg of the triangle, it then flies to a point on $\overline{AB}$ in a direction parallel to $\overline{CD}$. For example, on its first move, the fly can move to either of the points $Y_1$ or $Y_2$, as shown.
-Let $P$ and $Q$ be distinct points on $\overline{AB}$. Show that the fly can reach some point on $\overline{PQ}$.
+The result of all this is they have years of problem sets from previous competitions and they are fabulous. It helps to have some knowledge of number theory or other ... but most problems are appropriate to students with a highschool math background.  Most highschool students could understand the solutions.  However, they require a level of mathematical sophistication to discover the solution and write it up cleanly.
 
-[P](:-P/0/1/0.01)
-[Q](:-Q/0/1/0.01)
-[:arrow_left:](:=left=true) [:arrow_down:](:=down=true) [reset](:=reset=true)
-```p5js /playable/autoplay
+The problems are simultaneously appropriate for highschool level math curriculum and wonderfully challenging.
+
+
+### USAMTS Problem Set 1 
+
+**4/1/30**. Right triangle $\triangle ABC$ has $\angle C = 90^{\circ}$. A fly is trapped inside $\triangle ABC$. It starts at point $D$, the foot of the altitude from $C$ to $\overline{AB}$, and then makes a (finite) sequence of moves. In each move, it flies in a direction parallel to either $\overline{AC}$ or $\overline{BC}$; upon reaching a leg of the triangle, it then flies to a point on $\overline{AB}$ in a direction parallel to $\overline{CD}$. For example, on its first move, the fly can move to either of the points [Y1](:=Y1=true) or [Y2](:=Y2=true), as shown.
+
+Let $P$ and $Q$ be distinct points on $\overline{AB}$. Show that the fly can reach some point on $\overline{PQ}$. [Show P and Q](:=reset=true)
+```javascript /playable/p5js
 
 // this code is html code to make the app size and background
 const myDiv = this.div;
@@ -24,7 +28,7 @@ myDiv.style.borderRadius = '8px';
 
 // this is a bunch of variables for the size of the app window
 // it needs to change when the user resizes the web page
-const widthScale = 0.5;
+const widthScale = 0.8;
 const heightScale = 0.5;
 let canvasWidth = p5.windowWidth * widthScale;  // set the size of the playable
 let canvasHeight = p5.windowWidth * heightScale;
@@ -38,7 +42,7 @@ let unit = canvasWidth - 2 * xMargin;  // how wide should the triangle be
 // 2. set the position of first point
 let numClicks = 0;  
 let pink = [240,0,200];
-
+let showPQ = false;
 
 // our X and Y points are between 0 and 1.  We need to convert them to 'pixels' to scale
 // them to the size of the app window.
@@ -53,7 +57,7 @@ let getY = function(y) {
 
 // these are constants that define the triangle
 let a = 1; // x intercept. this should always be 1.  it's the width of the triangle
-let c = 1; // y intercept.  it's the height of triangle.  must be between 0 and 1.
+let c = 0.5; // y intercept.  it's the height of triangle.  must be between 0 and 1.
 let m =  - c / a; // slope of the hypotenuse
 let orthoM = - 1 / m;  // slope that is 90 degrees to hypotenuse
 let f = function(x) { return m * x + c; }; // returns a point on the hypotenuse
@@ -80,22 +84,8 @@ let getXfromMousePosition = function(p) {
   return (p - xMargin) / unit;
 };
 
-let drawTriangle = function() {
-  p5.clear();
+let drawTargetInterval = function() {
   p5.push();
-
-  p5.fill('white');
-  p5.stroke('black');
-  p5.strokeWeight(2);
-  // draw the main triangle
-  p5.triangle(getX(0), getY(0), getX(a), getY(0), getX(0), getY(c)); 
-  
-  // draw the triangle altitude
-  const [aX,aY] = altPoint(0,0);
-  p5.stroke(0,0,200);
-  p5.line(getX(0), getY(0), getX(aX), getY(aY));
-
-  // // draw the interval PQ
   p5.stroke(100,255,100);
   p5.line(getX(env.P),getY(f(env.P)), getX(env.Q), getY(f(env.Q)));
 
@@ -106,14 +96,75 @@ let drawTriangle = function() {
   p5.text('Q', getX(env.Q), getY(f(env.Q)) - 10);
   p5.ellipse(getX(env.P), getY(f(env.P)), 5);
   p5.ellipse(getX(env.Q), getY(f(env.Q)), 5);
+  p5.pop();
+};
+
+let drawY1 = function() {
+  p5.push();
+  X = startX;
+  Y = startY
+  makeMove(startX, 0);
+  p5.fill('black');
+  p5.text('Y1', getX(X), getY(Y) - 10);
+  p5.ellipse(getX(X), getY(Y), 5);
+  X = startX;
+  Y = startY
+  p5.pop();
+};
+
+
+let drawY2 = function() {
+  p5.push();
+  X = startX;
+  Y = startY
+  makeMove(0, startY);
+  p5.fill('black');
+  p5.text('Y1', getX(X), getY(Y) - 10);
+  p5.ellipse(getX(X), getY(Y), 5);
+  X = startX;
+  Y = startY
+  p5.pop();
+};
+
+
+let drawTriangle = function() {
+  p5.clear();
+  p5.push();
+
+  p5.fill('white');
+  p5.stroke('black');
+  p5.strokeWeight(2);
+  // draw the main triangle
+  p5.triangle(getX(0), getY(0), getX(a), getY(0), getX(0), getY(c)); 
+
+  let sz = 0.02;
+  p5.line(getX(sz), getY(sz), getX(0), getY(sz));
+  p5.line(getX(sz), getY(sz), getX(sz), getY(0));
+  
+  // draw the triangle altitude
+  const [aX,aY] = altPoint(0,0);
+  p5.stroke(0,0,200);
+  p5.line(getX(0), getY(0), getX(aX), getY(aY));
+  
+
+  p5.fill('black');
+  p5.stroke('black');
+  p5.strokeWeight(1);
+  p5.ellipse(getX(aX), getY(aY), 5);
 
   p5.text('A', getX(0), getY(c) - 10);
   p5.text('B', getX(a), getY(0) + 15);
   p5.text('C', getX(0), getY(0) + 15);
+  p5.text('D', getX(aX), getY(aY) - 10);
+  
   
   p5.circle(getX(0), getY(c), 5);
   p5.circle(getX(a), getY(0), 5);
   p5.circle(getX(0), getY(0), 5);
+
+  if (showPQ) {
+    drawTargetInterval();
+  }
             
   p5.pop();
 };
@@ -159,16 +210,19 @@ let makeMove = function( moveX, moveY )
 }
 
 
-smartdown.setVariable('P', 0.1);
-smartdown.setVariable('Q', 0.5);
+smartdown.setVariable('P', 0.7);
+smartdown.setVariable('Q', 0.8);
 smartdown.setVariable('left', false);
 smartdown.setVariable('down', false);
 smartdown.setVariable('reset', false);
+smartdown.setVariable('Y1', false);
+smartdown.setVariable('Y2', false);
 
 let prevP = 0.1;
 let prevQ = 0.5;
-this.dependOn = ['P', 'Q', 'left', 'down', 'reset'];
+this.dependOn = ['P', 'Q', 'left', 'down', 'reset', 'Y1', 'Y2'];
 this.depend = function() {
+
   if (env.left == true) {
     smartdown.setVariable('left', false);
     makeMove(0, Y);
@@ -177,8 +231,24 @@ this.depend = function() {
       smartdown.setVariable('down', false);
       makeMove(X, 0);
   }
+
+  if (env.Y1 == true){
+    smartdown.setVariable('Y1', false);
+    drawY1();
+  }
+
+  if (env.Y2 == true){
+    smartdown.setVariable('Y2', false);
+    drawY2();
+  }
+
   if (prevP != env.P || prevQ != env.Q || env.reset == true) {
-      smartdown.setVariable('reset', false);
+      
+      if (env.reset == true) {
+        showPQ = true;
+        smartdown.setVariable('reset', false);
+      } 
+      
       drawTriangle();
       prevP = env.P;
       prevQ = env.Q;
@@ -189,3 +259,6 @@ this.depend = function() {
 };
 
 ```
+[P](:-P/0/1/0.01)  
+[Q](:-Q/0/1/0.01)
+[:arrow_left:](:=left=true) [:arrow_down:](:=down=true) [reset](:=reset=true)
