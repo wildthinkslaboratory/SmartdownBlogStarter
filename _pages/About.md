@@ -9,7 +9,7 @@ My name is Heidi Dixon and I have a passionate interest in mathematics education
 
 ##### Professional Work
 
-- [Resume (pdf)](/assets/content/HeidiDixonResume.pdf)
+- [Resume (pdf)](blog/assets/content/HeidiDixonResume.pdf)
 - [Ph.D. Dissertation](http://www.cirl.uoregon.edu/dixon/papers/dixonDissertation.pdf)
 
 
@@ -39,4 +39,4 @@ My name is Heidi Dixon and I have a passionate interest in mathematics education
 
 #### Picture
 
-![](/assets/img/HeidiSmall.png)  
+![](blog/assets/img/HeidiSmall.png)  
