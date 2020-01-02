@@ -232,7 +232,7 @@ ul.list-narrow {
 /* ---- */
 
 
-.text-vertical-left {
+.header-content {
     display: table-cell;
     text-align: left;
     vertical-align: middle;
@@ -240,13 +240,36 @@ ul.list-narrow {
     font-size: 3.2em;
     font-weight: 700;
     color: #44BBBB;
+    font-family: 'fontawesome';
 }
 
-.text-vertical-left h1 {
+.header-content h1 {
     margin: 0;
     padding: 0;
     font-size: 3.2em;
     font-weight: 700;
+}
+
+.header-content ul {
+  list-style-type:none;
+  display: inline;
+}
+
+.header-content li {
+  float: right;
+}
+
+.header-content li a {
+  display: block;
+  color: #44BBBB;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.header-content li a:hover {
+  background-color: #FFFFFF;
 }
 
 ul.bloglist {
