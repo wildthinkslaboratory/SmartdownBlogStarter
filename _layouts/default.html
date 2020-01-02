@@ -17,7 +17,6 @@
     {{ site.title }}
     </title>
 
-
 {% if page.smartdown == true %}
     <link rel=stylesheet href="https://unpkg.com/smartdown/dist/lib/smartdown.css">
     <link rel=stylesheet href="https://unpkg.com/smartdown/dist/lib/fonts.css">
@@ -25,7 +24,6 @@
     </script>
     <script type="text/javascript" src="https://unpkg.com/smartdown/dist/lib/calc_handlers.js"></script>
     <script type="text/x-smartdown" id="Home"> 
-      <h2> {{ page.title }} </h2> 
       {{ content }}
     </script>
 {% endif %}
@@ -36,9 +34,9 @@
 
 {% if page.smartdown == true %}
     <div class="container-fluid smartdown-outer-container smartdown-theme">
+      <h1> {{ page.title }} </h1>
       <div class="col-xs-12 smartdown-container" id="blog-content">
       </div>
-      <!-- {% include pager.html %} -->
     </div>
 
     
@@ -59,71 +57,9 @@
 {% endif %}
 
 
-  <!-- {% include footer.html %} -->
-
     <script src="{{site.baseurl}}/assets/js/jquery/jquery.min.js"></script>
     <script src="{{site.baseurl}}/assets/js/bootstrap/bootstrap.min.js"></script>
 
-  <!--   <script>
-      // Closes the sidebar menu
-      $("#menu-close").click(function(e) {
-          e.preventDefault();
-          $("#sidebar-wrapper").toggleClass("active");
-      });
-      // Opens the sidebar menu
-      $("#menu-toggle").click(function(e) {
-          e.preventDefault();
-          $("#sidebar-wrapper").toggleClass("active");
-      });
-      // Scrolls to the selected menu item on the page
-      $(function() {
-          $('a[href*=\\#]:not([href=\\#],[data-toggle],[data-target],[data-slide])').click(function() {
-              if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                  var target = $(this.hash);
-                  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                  if (target.length) {
-                      $('html,body').animate({
-                          scrollTop: target.offset().top
-                      }, 1000);
-                      return false;
-                  }
-              }
-          });
-      });
-      //#to-top button appears after scrolling
-      // Opens the sidebar menu
-      $("#to-top").click(function(e) {
-          e.preventDefault();
-          console.log('to-top');
-          $('html,body').animate({
-              scrollTop: 0
-          }, 1000);
-      });
-      var fixed = false;
-      $(document).scroll(function() {
-          if ($(this).scrollTop() > 250) {
-              if (!fixed) {
-                  fixed = true;
-                  // $('#to-top').css({position:'fixed', display:'block'});
-                  $('#to-top').show("slow", function() {
-                      $('#to-top').css({
-                          position: 'fixed',
-                          display: 'block'
-                      });
-                  });
-              }
-          } else {
-              if (fixed) {
-                  fixed = false;
-                  $('#to-top').hide("slow", function() {
-                      $('#to-top').css({
-                          display: 'none'
-                      });
-                  });
-              }
-          }
-      });
-    </script> -->
 
 {% if page.smartdown == true %}
 {% include smartdown_footer.html %}

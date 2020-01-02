@@ -16,7 +16,7 @@ type: home
 
                 <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y'}}</time>
                 <div class="bloglist-excerpt">
-                  <p>{{ post.excerpt }}</p>
+                  <p>{{ post.excerpt | markdownify }}</p>
                 </div>
 
               </p>
